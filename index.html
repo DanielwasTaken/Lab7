@@ -138,15 +138,44 @@
       // From the 4 CRUD actions, this is the CREATE action, and uses the POST http method.
       // The main difference from updateRecord() will be the URL you send data to; check
       // the writeup to view the URL pattern for create and update
-      function createRecord() {
-        // TODO
+      function createRecord(type) {
+        let recordForm = document.getElementById("recordForm");
+        if(type == "show"){
+          recordForm.style.display = "inline";
+        }
+        else{
+          let link = document.getElementById("endpoint").value;
+          
+          fetch(link, {method: "post", headers:, body: "author="+document.getElementById("author").value+"&title="+document.getElementById("title").value})
+          .then(
+           function(response) {
+              if (response.status !== 200) {
+                //console.log('Looks like there was a problem. Status Code: ' + response.status);
+                let output = document.getElementById("output");
+                output.innerHTML = "Network Error: " + response.status;
+                return;
+              }
+
+              response.json().then(function(data) {
+                let output = document.getElementById("output");
+                output.innerHTML = JSON.stringify(data);
+              });
+            }
+          )
+          .catch(function(err) {
+            console.log('Fetch Error :-S', err);
+          });
+          
+          }
+        
+        
       }
 
       // This function should use fetch to update one existing entry in the given endpoint.
       // From the 4 CRUD actions, this is the UPDATE action, and uses the PUT http method.
       // The main difference from createRecord() will be the URL you send data to; check
       // the writeup to view the URL pattern for create and update
-      function updateRecord() {
+      function updateRecord(type) {
         // TODO
       }
 
