@@ -84,7 +84,10 @@
       // The main difference from fetchOne() will be the URL you request from; check
       // the writeup to view the URL pattern for fetch one and fetch all
       function fetchAll() {
-        // TODO
+        let link = document.getElementById("endpoint");
+        let outputString = fetch(link).then(response => response.json()).then(data => {return JSON.stringify(data);});
+        let output = document.getElementById("output");
+        output.innerHTML = outputString;
       }
 
       // This function should fetch one entry from the given endpoint.
