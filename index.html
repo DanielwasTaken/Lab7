@@ -146,7 +146,7 @@
         else{
           let link = document.getElementById("endpoint").value;
           
-          fetch(link, {method: "post", headers:, body: "author="+document.getElementById("author").value+"&title="+document.getElementById("title").value})
+          fetch(link, {method: "post", body: "author="+document.getElementById("author").value+"&title="+document.getElementById("title").value})
           .then(
            function(response) {
               if (response.status !== 200) {
