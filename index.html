@@ -103,8 +103,6 @@
             // Examine the text in the response
             response.json().then(function(data) {
               let output = document.getElementById("output");
-              console.log("data = " + data);
-              console.log("data+stringify = "+JSON.stringify(data));
               output.innerHTML = JSON.stringify(data);
             });
           }
