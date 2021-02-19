@@ -85,13 +85,33 @@
       // the writeup to view the URL pattern for fetch one and fetch all
       function fetchAll() {
         let link = document.getElementById("endpoint");
-        fetch(link)
+        /*fetch(link)
           .then(response => response.json())
           .then(data => {
             let output = document.getElementById("output");
             console.log("data = " + data);
             console.log("data+stringify = "+JSON.stringify(data));
-            output.innerHTML = JSON.stringify(data);});
+            output.innerHTML = JSON.stringify(data);});*/
+        fetch('./api/some.json')
+        .then(
+          function(response) {
+            if (response.status !== 200) {
+              console.log('Looks like there was a problem. Status Code: ' + response.status);
+              return;
+            }
+
+            // Examine the text in the response
+            response.json().then(function(data) {
+              let output = document.getElementById("output");
+              console.log("data = " + data);
+              console.log("data+stringify = "+JSON.stringify(data));
+              output.innerHTML = JSON.stringify(data);
+            });
+          }
+        )
+        .catch(function(err) {
+          console.log('Fetch Error :-S', err);
+  });
         
       }
 
