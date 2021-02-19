@@ -88,7 +88,7 @@
         fetch(link).then(response => response.json()).then(data => {
           let output = document.getElementById("output");
           console.log("data = " + data);
-          console.log("data+stringify = "+JSON.stringify(data);
+          console.log("data+stringify = "+JSON.stringify(data));
           output.innerHTML = JSON.stringify(data);});
         
       }
