@@ -89,7 +89,9 @@
         .then(
           function(response) {
             if (response.status !== 200) {
-              console.log('Looks like there was a problem. Status Code: ' + response.status);
+              //console.log('Looks like there was a problem. Status Code: ' + response.status);
+              let output = document.getElementById("output");
+              output.innerHTML = "Network Error: " + response.status;
               return;
             }
 
@@ -116,7 +118,8 @@
         .then(
           function(response) {
             if (response.status !== 200) {
-              console.log('Looks like there was a problem. Status Code: ' + response.status);
+              let output = document.getElementById("output");
+              output.innerHTML = "Network Error: " + response.status;
               return;
             }
 
