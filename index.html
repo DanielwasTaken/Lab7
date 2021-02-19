@@ -85,11 +85,13 @@
       // the writeup to view the URL pattern for fetch one and fetch all
       function fetchAll() {
         let link = document.getElementById("endpoint");
-        fetch(link).then(response => response.json()).then(data => {
-          let output = document.getElementById("output");
-          console.log("data = " + data);
-          console.log("data+stringify = "+JSON.stringify(data));
-          output.innerHTML = JSON.stringify(data);});
+        fetch(link)
+          .then(response => response.json())
+          .then(data => {
+            let output = document.getElementById("output");
+            console.log("data = " + data);
+            console.log("data+stringify = "+JSON.stringify(data));
+            output.innerHTML = JSON.stringify(data);});
         
       }
 
@@ -98,7 +100,14 @@
       // The main difference from fetchAll() will be the URL you request from; check
       // the writeup to view the URL pattern for fetch one and fetch all
       function fetchOne() {
-        // TODO
+        let link = document.getElementById("endpoint");
+        fetch(link)
+          .then(response => response.json())
+          .then(data => {
+            let output = document.getElementById("output");
+            console.log("data = " + data);
+            console.log("data+stringify = "+JSON.stringify(data));
+            output.innerHTML = JSON.stringify(data);});
       }
 
       // This function should use fetch to create one entry in the given endpoint.
