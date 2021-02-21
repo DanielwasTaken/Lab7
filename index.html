@@ -195,7 +195,7 @@
           fetch(link, {method: "PUT", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(postObject)})
           .then(
            function(response) {
-              if (response.status !== 201) {
+              if (response.status !== 200) {
                 //console.log('Looks like there was a problem. Status Code: ' + response.status);
                 let output = document.getElementById("output");
                 output.innerHTML = "Network Error: " + response.status;
