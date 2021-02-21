@@ -86,8 +86,8 @@
       function fetchAll() {
         let recordForm = document.getElementById("recordForm");
         let recordId = document.getElementById("recordIDcontainer");
-        recordForm.style.display = "hidden";
-        recordId.style.display = "hidden";
+        recordForm.style.display = "none";
+        recordId.style.display = "none";
         let link = document.getElementById("endpoint").value;
         fetch(link)
         .then(
@@ -118,8 +118,8 @@
       function fetchOne() {
         let recordForm = document.getElementById("recordForm");
         let recordId = document.getElementById("recordIDcontainer");
-        recordForm.style.display = "hidden";
-        recordId.style.display = "hidden";
+        recordForm.style.display = "none";
+        recordId.style.display = "none";
         let input = window.prompt("Enter record id");
         let link = document.getElementById("endpoint").value + "/" + input;
         fetch(link)
@@ -148,7 +148,7 @@
       // the writeup to view the URL pattern for create and update
       function createRecord(type) { 
         let recordId = document.getElementById("recordIDcontainer");
-        recordId.style.display = "hidden";
+        recordId.style.display = "none";
         if(type == "show"){
           let recordForm = document.getElementById("recordForm");
           recordForm.style.display = "inline";
