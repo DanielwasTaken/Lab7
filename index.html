@@ -140,13 +140,15 @@
       // the writeup to view the URL pattern for create and update
       function createRecord(type) {
         let recordForm = document.getElementById("recordForm");
-        if(type == "show"){
           recordForm.style.display = "inline";
         }
         else{
           let link = document.getElementById("endpoint").value;
-          
-          fetch(link, {method: "POST", body: "author="+document.getElementById("author").value+"&title="+document.getElementById("title").value})
+          let postObject = {
+            author : document.getElementById("author").value,
+            title : document.getElementById("title")
+           }; 
+          fetch(link, {method: "POST", body: JSON.stringify(postObject)})
           .then(
            function(response) {
               if (response.status !== 200) {
