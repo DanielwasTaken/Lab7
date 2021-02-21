@@ -84,6 +84,10 @@
       // The main difference from fetchOne() will be the URL you request from; check
       // the writeup to view the URL pattern for fetch one and fetch all
       function fetchAll() {
+        let recordForm = document.getElementById("recordForm");
+        let recordId = document.getElementById("recordIDcontainer");
+        recordForm.style.display = "hidden";
+        recordId.style.display = "hidden";
         let link = document.getElementById("endpoint").value;
         fetch(link)
         .then(
@@ -112,6 +116,10 @@
       // The main difference from fetchAll() will be the URL you request from; check
       // the writeup to view the URL pattern for fetch one and fetch all
       function fetchOne() {
+        let recordForm = document.getElementById("recordForm");
+        let recordId = document.getElementById("recordIDcontainer");
+        recordForm.style.display = "hidden";
+        recordId.style.display = "hidden";
         let input = window.prompt("Enter record id");
         let link = document.getElementById("endpoint").value + "/" + input;
         fetch(link)
@@ -139,6 +147,8 @@
       // The main difference from updateRecord() will be the URL you send data to; check
       // the writeup to view the URL pattern for create and update
       function createRecord(type) { 
+        let recordId = document.getElementById("recordIDcontainer");
+        recordId.style.display = "hidden";
         if(type == "show"){
           let recordForm = document.getElementById("recordForm");
           recordForm.style.display = "inline";
