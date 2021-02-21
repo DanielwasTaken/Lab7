@@ -138,10 +138,9 @@
       // From the 4 CRUD actions, this is the CREATE action, and uses the POST http method.
       // The main difference from updateRecord() will be the URL you send data to; check
       // the writeup to view the URL pattern for create and update
-      function createRecord(type) {
-        let recordForm = document.getElementById("recordForm");
-        
+      function createRecord(type) { 
         if(type == "show"){
+          let recordForm = document.getElementById("recordForm");
           recordForm.style.display = "inline";
         }
         else{
@@ -180,7 +179,39 @@
       // The main difference from createRecord() will be the URL you send data to; check
       // the writeup to view the URL pattern for create and update
       function updateRecord(type) {
-        // TODO
+        if(type == "show"){
+          let recordForm = document.getElementById("recordForm");
+          let recordId = document.getElementById("recordIDContainer");
+          recordForm.style.display = "inline";
+          recordId.style.display = "inline";
+        }
+        else{
+          let input = document.getElementById("recordIDContainer").value;
+          let link = document.getElementById("endpoint").value+"/"+input;
+          let postObject = {
+            author : document.getElementById("author").value,
+            title : document.getElementById("title").value
+           }; 
+          fetch(link, {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(postObject)})
+          .then(
+           function(response) {
+              if (response.status !== 201) {
+                //console.log('Looks like there was a problem. Status Code: ' + response.status);
+                let output = document.getElementById("output");
+                output.innerHTML = "Network Error: " + response.status;
+                return;
+              }
+
+              response.json().then(function(data) {
+                let output = document.getElementById("output");
+                output.innerHTML = JSON.stringify(data);
+              });
+            }
+          )
+          .catch(function(err) {
+            console.log('Fetch Error :-S', err);
+          });
+          
       }
 
       // This function should use fetch to delete one existing entry in the given endpoint.
