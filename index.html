@@ -180,12 +180,14 @@
       // the writeup to view the URL pattern for create and update
       function updateRecord(type) {
         if(type == "show"){
+          console.log("showing");
           let recordForm = document.getElementById("recordForm");
           let recordId = document.getElementById("recordID");
           recordForm.style.display = "inline";
           recordId.style.display = "inline";
         }
         else{
+          console.log("updating");
           let input = document.getElementById("recordID").value;
           let link = document.getElementById("endpoint").value+"/"+input;
           let postObject = {
