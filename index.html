@@ -151,9 +151,16 @@
       function createRecord(type) { 
         let recordId = document.getElementById("recordIDcontainer");
         recordId.style.display = "none";
+        
         if(type == "show"){
           let recordForm = document.getElementById("recordForm");
           recordForm.style.display = "inline";
+          let input = document.getElementById("recordID");
+          let author = document.getElementById("author");
+          let title = document.getElementById("title");
+          input.value = "";
+          author.value = "";
+          title.value = "";
         }
         else{
           let link = document.getElementById("endpoint").value;
@@ -197,6 +204,13 @@
           let recordId = document.getElementById("recordIDcontainer");
           recordForm.style.display = "inline";
           recordId.style.display = "inline";
+          
+          let input = document.getElementById("recordID");
+          let author = document.getElementById("author");
+          let title = document.getElementById("title");
+          input.value = "";
+          author.value = "";
+          title.value = "";
         }
         else{
           let input = document.getElementById("recordID").value;
