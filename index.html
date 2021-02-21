@@ -148,7 +148,7 @@
           let link = document.getElementById("endpoint").value;
           let postObject = {
             author : document.getElementById("author").value,
-            title : document.getElementById("title")
+            title : document.getElementById("title").value
            }; 
           fetch(link, {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(postObject)})
           .then(
